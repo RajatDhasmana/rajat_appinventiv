@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -20,21 +19,22 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fQd-ob-CTb">
-                        <rect key="frame" x="33" y="16" width="260" height="50"/>
+                        <rect key="frame" x="90" y="27" width="140" height="28"/>
                         <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                         <accessibility key="accessibilityConfiguration" identifier="ButtonCellID"/>
-                        <state key="normal" title="Button">
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <state key="normal" title="SAVE CHANGES">
                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         </state>
                     </button>
                 </subviews>
-                <constraints>
-                    <constraint firstAttribute="trailingMargin" secondItem="fQd-ob-CTb" secondAttribute="trailing" constant="19" id="3Vj-OR-oGO"/>
-                    <constraint firstItem="fQd-ob-CTb" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="BmA-A3-0NP"/>
-                    <constraint firstItem="fQd-ob-CTb" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="8" id="gaC-gM-rkT"/>
-                    <constraint firstItem="fQd-ob-CTb" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="25" id="wPR-60-8Jk"/>
-                </constraints>
             </tableViewCellContentView>
+            <constraints>
+                <constraint firstItem="fQd-ob-CTb" firstAttribute="centerX" secondItem="KGk-i7-Jjw" secondAttribute="centerX" id="Msv-Rq-3TQ"/>
+                <constraint firstAttribute="trailing" secondItem="fQd-ob-CTb" secondAttribute="trailing" constant="90" id="uaW-k6-244"/>
+                <constraint firstItem="fQd-ob-CTb" firstAttribute="centerY" secondItem="KGk-i7-Jjw" secondAttribute="centerY" id="utk-hV-PsZ"/>
+                <constraint firstItem="fQd-ob-CTb" firstAttribute="leading" secondItem="KGk-i7-Jjw" secondAttribute="leading" constant="90" id="zuD-yg-ZJL"/>
+            </constraints>
             <connections>
                 <outlet property="SaveButton" destination="fQd-ob-CTb" id="cxQ-nw-Ika"/>
             </connections>

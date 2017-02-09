@@ -17,7 +17,7 @@ class UpperCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-  profileImageView.clipsToBounds = true
+//  profileImageView.clipsToBounds = true
         profileImageView.layer.cornerRadius = profileImageView.layer.bounds.width/2
         
     }

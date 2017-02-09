@@ -89,7 +89,7 @@ class ProfileVC: UIViewController {
                 
             case 7 : return 160
             
-            default : return 67
+            default : return 100
             
             
             }
