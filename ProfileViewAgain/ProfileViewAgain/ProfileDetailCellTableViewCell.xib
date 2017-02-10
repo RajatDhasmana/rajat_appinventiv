@@ -31,7 +31,7 @@
                             <constraint firstAttribute="height" constant="1" id="RFL-SL-vh5"/>
                         </constraints>
                     </imageView>
-                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JrA-hK-ZGh">
+                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JrA-hK-ZGh">
                         <rect key="frame" x="8" y="30" width="288" height="30"/>
                         <accessibility key="accessibilityConfiguration" identifier="ProfileDetailCellID"/>
                         <nil key="textColor"/>

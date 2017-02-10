@@ -12,6 +12,11 @@ class ProfileVC: UIViewController {
 
     
     @IBOutlet weak var profileTableView: UITableView!
+  
+    
+    @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
+    
+    
     
     let data = [
         ["titlename":"Full Name" , "titledetail":"Rajat Dhasmana"],
@@ -40,6 +45,28 @@ class ProfileVC: UIViewController {
         
         let cellNib3 = UINib(nibName: "UpperCell", bundle: nil)
         profileTableView.register(cellNib3, forCellReuseIdentifier: "UpperCellID")
+    }
+    
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        NotificationCenter.default.addObserver(forName: .UIKeyboardDidShow, object: nil, queue: OperationQueue.main, using: {(Notification) -> Void in
+        
+           guard let userinfo = Notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue
+            
+            else{
+            return
+            }
+        
+           let keyboardHeight = userinfo.cgRectValue.height
+            self.bottomConstraint.constant = keyboardHeight
+            
+            
+        })
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
