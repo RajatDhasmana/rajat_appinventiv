@@ -103,15 +103,15 @@ class MultipleVC: UIViewController {
        
         listflag = false
         
-        nameCollectionView.performBatchUpdates({
-            
-            self.nameCollectionView.layoutIfNeeded()
-            
-        }, completion: {(flag) in
-            
-            self.nameCollectionView.reloadData()
-        
-        })
+//        nameCollectionView.performBatchUpdates({
+//            
+//            self.nameCollectionView.layoutIfNeeded()
+//            
+//        }, completion: {(flag) in
+//            
+//            self.nameCollectionView.reloadData()
+//        
+//        })
        
        
         
@@ -123,15 +123,15 @@ class MultipleVC: UIViewController {
         
         listflag = true
         
-        nameCollectionView.performBatchUpdates({
-            
-            self.nameCollectionView.layoutIfNeeded()
-        
-        }, completion: {(flag) in
-            
-            self.nameCollectionView.reloadData()
-        
-        })
+//        nameCollectionView.performBatchUpdates({
+//            
+//            self.nameCollectionView.layoutIfNeeded()
+//        
+//        }, completion: {(flag) in
+//            
+//            self.nameCollectionView.reloadData()
+//        
+//        })
     }
     
         self.nameCollectionView.layoutIfNeeded()
@@ -146,6 +146,19 @@ class MultipleVC: UIViewController {
 
 extension MultipleVC : UICollectionViewDelegate , UICollectionViewDataSource , UICollectionViewDelegateFlowLayout
 {
+    
+    
+    func animateCell(cell: UICollectionViewCell) {
+        let animation = CABasicAnimation(keyPath: "cornerRadius")
+        animation.fromValue = 200
+        
+        animation.toValue = 0
+        animation.duration = 1
+        cell.layer.add(animation, forKey: animation.keyPath)
+    }
+    
+    
+    
  //..................returning no. of cells...................
  
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -166,14 +179,13 @@ extension MultipleVC : UICollectionViewDelegate , UICollectionViewDataSource , U
             collectioncell.layer.borderWidth = 2.0
      
             collectioncell.layer.borderColor = UIColor.green.cgColor
-            
+            animateCell(cell: collectioncell)
         return collectioncell
        
         }
         
         else
         {
-        
             let tablecell = collectionView.dequeueReusableCell(withReuseIdentifier: "TableCellID", for: indexPath) as! TableCell
             
             let nameobj = NameModel(dict : names[indexPath.item])
@@ -183,7 +195,7 @@ extension MultipleVC : UICollectionViewDelegate , UICollectionViewDataSource , U
             tablecell.layer.borderWidth = 2.0
          
             tablecell.layer.borderColor = UIColor.green.cgColor
-        
+        animateCell(cell: tablecell)
             return tablecell
         
             
