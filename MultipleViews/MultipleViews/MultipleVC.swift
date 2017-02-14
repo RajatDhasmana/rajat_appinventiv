@@ -103,15 +103,15 @@ class MultipleVC: UIViewController {
        
         listflag = false
         
-//        nameCollectionView.performBatchUpdates({
-//            
-//            self.nameCollectionView.layoutIfNeeded()
-//            
-//        }, completion: {(flag) in
-//            
-//            self.nameCollectionView.reloadData()
-//        
-//        })
+        nameCollectionView.performBatchUpdates({
+            
+            self.nameCollectionView.layoutIfNeeded()
+            
+        }, completion: {(flag) in
+            
+            self.nameCollectionView.reloadData()
+        
+        })
        
        
         
@@ -123,15 +123,15 @@ class MultipleVC: UIViewController {
         
         listflag = true
         
-//        nameCollectionView.performBatchUpdates({
-//            
-//            self.nameCollectionView.layoutIfNeeded()
-//        
-//        }, completion: {(flag) in
-//            
-//            self.nameCollectionView.reloadData()
-//        
-//        })
+        nameCollectionView.performBatchUpdates({
+            
+            self.nameCollectionView.layoutIfNeeded()
+        
+        }, completion: {(flag) in
+            
+            self.nameCollectionView.reloadData()
+        
+        })
     }
     
         self.nameCollectionView.layoutIfNeeded()
