@@ -34,7 +34,7 @@ class GridLayout: UICollectionViewFlowLayout {
     {
     minimumLineSpacing = 1
     minimumInteritemSpacing = 0
-    scrollDirection = .horizontal
+    scrollDirection = .vertical
     
     }
     
