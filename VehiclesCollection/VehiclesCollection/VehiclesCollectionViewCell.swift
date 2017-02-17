@@ -17,9 +17,21 @@ class VehiclesCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var vehicleLabel: UILabel!
     
     
+    @IBOutlet weak var favButton: UIButton!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+//        switch favButton.isSelected {
+//        case true:
+//            favButton.backgroundColor = UIColor.red
+//            
+//        case false:
+//            favButton.backgroundColor = UIColor.blue
+//        default:
+//            favButton.backgroundColor = UIColor.green
+//        }
     }
     
     func congigurecell(modelobject datamodel : DataModel) {

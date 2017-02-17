@@ -81,33 +81,7 @@ class VehiclesVC: UIViewController {
     var counter : Int?
    
     
-    var datacollection = [
-        ["category":"CAR" , "carcompany":"AUDI" , "carimage":UIImage(named: "audi1")!],
-        ["category":"CAR" , "carcompany":"AUDI" , "carimage":UIImage(named: "audi2")!],
-        ["category":"CAR" , "carcompany":"AUDI" , "carimage":UIImage(named: "audi3")!],
-        ["category":"CAR" , "carcompany":"AUDI" , "carimage":UIImage(named: "audi4")!],
-        ["category":"CAR" , "carcompany":"AUDI" , "carimage":UIImage(named: "audi5")!],
-        ["category":"CAR" , "carcompany":"AUDI" , "carimage":UIImage(named: "audi1")!],
-        ["category":"CAR" , "carcompany":"AUDI" , "carimage":UIImage(named: "audi2")!],
-        ["category":"CAR" , "carcompany":"LAMBORGHINI" , "carimage":UIImage(named: "lamborghini1")!],
-        ["category":"CAR" , "carcompany":"LAMBORGHINI" , "carimage":UIImage(named: "lamborghini2")!],
-        ["category":"CAR" , "carcompany":"LAMBORGHINI" , "carimage":UIImage(named: "lamborghini3")!],
-        ["category":"CAR" , "carcompany":"LAMBORGHINI" , "carimage":UIImage(named: "lamborghini4")!],
-        ["category":"CAR" , "carcompany":"LAMBORGHINI" , "carimage":UIImage(named: "lamborghini5")!],
-        ["category":"CAR" , "carcompany":"LAMBORGHINI" , "carimage":UIImage(named: "lamborghini1")!],
-        ["category":"CAR" , "carcompany":"BMW" , "carimage":UIImage(named: "bmw1")!],
-        ["category":"CAR" , "carcompany":"BMW" , "carimage":UIImage(named: "bmw2")!],
-        ["category":"CAR" , "carcompany":"BMW" , "carimage":UIImage(named: "bmw3")!],
-        ["category":"CAR" , "carcompany":"BMW" , "carimage":UIImage(named: "bmw4")!],
-        ["category":"CAR" , "carcompany":"BMW" , "carimage":UIImage(named: "bmw5")!],
-        ["category":"CAR" , "carcompany":"BMW" , "carimage":UIImage(named: "bmw1")!],
-        ["category":"CAR" , "carcompany":"BMW" , "carimage":UIImage(named: "bmw2")!]
-    ]
-    
-    
-    
-    
-    override func viewDidLoad() {
+        override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
@@ -129,26 +103,34 @@ class VehiclesVC: UIViewController {
 
 extension VehiclesVC : UITableViewDelegate , UITableViewDataSource {
 
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 3
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let tablecell = tableView.dequeueReusableCell(withIdentifier: "CellForCollectionTableViewCellID", for: indexPath) as! CellForCollectionTableViewCell
-        switch indexPath.item{
-        case 0 :
+        switch (indexPath.row , indexPath.section) {
+        case (0 , 0) :
             tablecell.category = .car
             tablecell.company = .audi
+            tablecell.carCompanyLabel.text = "AUDI"
             return tablecell
 
-        case 1:
+        case (1 , 0):
             tablecell.category = .car
             tablecell.company = .bmw
+            tablecell.carCompanyLabel.text = "BMW"
             return tablecell
 
-        case 2 :
+        case (2 , 0) :
             tablecell.category = .car
             tablecell.company = .lamborghini
+            tablecell.carCompanyLabel.text = "LAMBORGHINI"
             return tablecell
 
         default :
@@ -160,6 +142,20 @@ extension VehiclesVC : UITableViewDelegate , UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 150
     }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        switch section {
+        case 0:
+            return "CARS"
+        default:
+            fatalError("not found")
+        }
+    }
+
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 30
+    }
+       
 
 }
 

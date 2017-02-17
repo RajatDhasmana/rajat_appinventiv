@@ -10,34 +10,14 @@ import UIKit
 
 class CellForCollectionTableViewCell: UITableViewCell  {
 
+    
+    @IBOutlet weak var carCompanyLabel: UILabel! 
+    
     var company : Carcompany!
     var category : Category!
     var counter : [[String : Any]]?
     var filtereddictionary : [String : Any]?
     
-    let datacollection = [
-        ["category":"CAR" , "carcompany":"AUDI" , "carimage":UIImage(named: "audi1")!],
-        ["category":"CAR" , "carcompany":"AUDI" , "carimage":UIImage(named: "audi2")!],
-        ["category":"CAR" , "carcompany":"AUDI" , "carimage":UIImage(named: "audi3")!],
-        ["category":"CAR" , "carcompany":"AUDI" , "carimage":UIImage(named: "audi4")!],
-        ["category":"CAR" , "carcompany":"AUDI" , "carimage":UIImage(named: "audi5")!],
-        ["category":"CAR" , "carcompany":"AUDI" , "carimage":UIImage(named: "audi1")!],
-        ["category":"CAR" , "carcompany":"AUDI" , "carimage":UIImage(named: "audi2")!],
-        ["category":"CAR" , "carcompany":"LAMBORGHINI" , "carimage":UIImage(named: "lamborghini1")!],
-        ["category":"CAR" , "carcompany":"LAMBORGHINI" , "carimage":UIImage(named: "lamborghini2")!],
-        ["category":"CAR" , "carcompany":"LAMBORGHINI" , "carimage":UIImage(named: "lamborghini3")!],
-        ["category":"CAR" , "carcompany":"LAMBORGHINI" , "carimage":UIImage(named: "lamborghini4")!],
-        ["category":"CAR" , "carcompany":"LAMBORGHINI" , "carimage":UIImage(named: "lamborghini5")!],
-        ["category":"CAR" , "carcompany":"LAMBORGHINI" , "carimage":UIImage(named: "lamborghini1")!],
-        ["category":"CAR" , "carcompany":"BMW" , "carimage":UIImage(named: "bmw1")!],
-        ["category":"CAR" , "carcompany":"BMW" , "carimage":UIImage(named: "bmw2")!],
-        ["category":"CAR" , "carcompany":"BMW" , "carimage":UIImage(named: "bmw3")!],
-        ["category":"CAR" , "carcompany":"BMW" , "carimage":UIImage(named: "bmw4")!],
-        ["category":"CAR" , "carcompany":"BMW" , "carimage":UIImage(named: "bmw5")!],
-        ["category":"CAR" , "carcompany":"BMW" , "carimage":UIImage(named: "bmw1")!],
-        ["category":"CAR" , "carcompany":"BMW" , "carimage":UIImage(named: "bmw2")!]
-    ]
-
     
     @IBOutlet weak var collectionViewOfItems: UICollectionView!
     
@@ -54,8 +34,9 @@ class CellForCollectionTableViewCell: UITableViewCell  {
         //collectionViewOfItems.register(cellNib2, forCellReuseIdentifier: "VehiclesCollectionViewCellID")
     
         collectionViewOfItems.register(cellNib2, forCellWithReuseIdentifier: "VehiclesCollectionViewCellID")
+        
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
@@ -67,6 +48,12 @@ class CellForCollectionTableViewCell: UITableViewCell  {
 
 extension CellForCollectionTableViewCell : UICollectionViewDelegate , UICollectionViewDataSource , UICollectionViewDelegateFlowLayout {
     
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+    
+        return 3
+        
+    }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch (company as Carcompany , category as Category) {
@@ -107,6 +94,9 @@ extension CellForCollectionTableViewCell : UICollectionViewDelegate , UICollecti
             let collectionobj = DataModel(jsondata : filteredobj.datafiltered![indexPath.item])
             
             collectioncell.congigurecell(modelobject: collectionobj)
+            collectioncell.layer.borderWidth = 1
+            collectioncell.layer.borderColor = UIColor.black.cgColor
+            collectioncell.favButton.addTarget(self, action: #selector(self.favButtonTapped), for: .touchUpInside)
             return collectioncell
 
         case (.bmw , .car) :
@@ -114,6 +104,9 @@ extension CellForCollectionTableViewCell : UICollectionViewDelegate , UICollecti
             let collectionobj = DataModel(jsondata : filteredobj.datafiltered![indexPath.item])
             
             collectioncell.congigurecell(modelobject: collectionobj)
+            collectioncell.layer.borderWidth = 1
+            collectioncell.layer.borderColor = UIColor.black.cgColor
+            collectioncell.favButton.addTarget(self, action: #selector(self.favButtonTapped), for: .touchUpInside)
             return collectioncell
 
             
@@ -122,6 +115,9 @@ extension CellForCollectionTableViewCell : UICollectionViewDelegate , UICollecti
             let collectionobj = DataModel(jsondata : filteredobj.datafiltered![indexPath.item])
             
             collectioncell.congigurecell(modelobject: collectionobj)
+            collectioncell.layer.borderWidth = 1
+            collectioncell.layer.borderColor = UIColor.black.cgColor
+            collectioncell.favButton.addTarget(self, action: #selector(self.favButtonTapped), for: .touchUpInside)
             return collectioncell
 
         
@@ -131,8 +127,36 @@ extension CellForCollectionTableViewCell : UICollectionViewDelegate , UICollecti
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 50, height: 100)
+        return CGSize(width: 100, height: 100)
     }
+    
+    
+    func favButtonTapped(button : UIButton) {
+        var cell : Any = button
+        while !(cell is VehiclesCollectionViewCell) {
+            cell = (cell as AnyObject).superview as Any
+        }
+        print(cell)
+        let collectiontypecell = cell
+        
+        while !(cell is CellForCollectionTableViewCell) {
+
+            cell = (cell as AnyObject).superview
+        }
+        print("cell")
+        let tabletypecell = cell
+        
+        if button.isSelected == true {
+            button.isSelected = false
+            
+        }
+        else{
+            button.isSelected = true
+                    }
+       
+    }
+
+    
     
     
 }

@@ -42,10 +42,31 @@ extension VehiclesTableViewCell : UITableViewDataSource , UITableViewDelegate  {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CellForCollectionTableViewCellID", for: indexPath) as! CellForCollectionTableViewCell
+        let tablecell = tableView.dequeueReusableCell(withIdentifier: "CellForCollectionTableViewCellID", for: indexPath) as! CellForCollectionTableViewCell
+        switch indexPath.item{
+        case 0 :
+            tablecell.category = .car
+            tablecell.company = .audi
+            return tablecell
+            
+        case 1:
+            tablecell.category = .car
+            tablecell.company = .bmw
+            return tablecell
+            
+        case 2 :
+            tablecell.category = .car
+            tablecell.company = .lamborghini
+            return tablecell
+            
+        default :
+            fatalError("not found")
+        }
+        
+    }
     
-        return cell
-    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 150
     }
     
     
