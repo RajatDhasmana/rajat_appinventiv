@@ -132,7 +132,20 @@ extension CellForCollectionTableViewCell : UICollectionViewDelegate , UICollecti
     
     
     func favButtonTapped(button : UIButton) {
+        if button.isSelected == true {
+            button.isSelected = false
+            
+        }
+        else{
+            button.isSelected = true
+        }
+
+        
+        
         var cell : Any = button
+        
+        
+        
         while !(cell is VehiclesCollectionViewCell) {
             cell = (cell as AnyObject).superview as Any
         }
@@ -146,13 +159,9 @@ extension CellForCollectionTableViewCell : UICollectionViewDelegate , UICollecti
         print("cell")
         let tabletypecell = cell
         
-        if button.isSelected == true {
-            button.isSelected = false
-            
-        }
-        else{
-            button.isSelected = true
-                    }
+        let tableindexpath = Vehicl
+        let collectionindexpath = collectionViewOfItems.indexPath(for: collectiontypecell as! UICollectionViewCell)
+        print(collectionindexpath!)
        
     }
 

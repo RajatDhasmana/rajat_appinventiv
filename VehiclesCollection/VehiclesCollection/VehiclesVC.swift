@@ -56,7 +56,6 @@ class DataModel {
         carcompany = data["carcompany"] as! String
         carimage = data["carimage"] as! UIImage
         
-
     }
     
 }
