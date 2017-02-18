@@ -8,5 +8,6 @@
 
 import Foundation
 import UIKit
-
-var favourite = Array<UITableViewCell>()
+//
+//var favourite = Array<Any>()
+var favourite = [[IndexPath]]()
