@@ -21,6 +21,9 @@
 		D6561CD71E5AE016004E4D75 /* GetTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6561CD61E5AE016004E4D75 /* GetTableCell.swift */; };
 		D6561CD91E5AF7EA004E4D75 /* HeaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6561CD81E5AF7EA004E4D75 /* HeaderViewController.swift */; };
 		D6561CDB1E5AFAF5004E4D75 /* HeaderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6561CDA1E5AFAF5004E4D75 /* HeaderViewController.xib */; };
+		D6F414521E5C612A00BE2A57 /* Webservices.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F414511E5C612A00BE2A57 /* Webservices.swift */; };
+		D6F414541E5C617300BE2A57 /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F414531E5C617300BE2A57 /* NetworkController.swift */; };
+		D6F414561E5C61BD00BE2A57 /* ImageInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F414551E5C61BD00BE2A57 /* ImageInfoModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +43,9 @@
 		D6561CD61E5AE016004E4D75 /* GetTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetTableCell.swift; sourceTree = "<group>"; };
 		D6561CD81E5AF7EA004E4D75 /* HeaderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderViewController.swift; sourceTree = "<group>"; };
 		D6561CDA1E5AFAF5004E4D75 /* HeaderViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderViewController.xib; sourceTree = "<group>"; };
+		D6F414511E5C612A00BE2A57 /* Webservices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Webservices.swift; sourceTree = "<group>"; };
+		D6F414531E5C617300BE2A57 /* NetworkController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
+		D6F414551E5C61BD00BE2A57 /* ImageInfoModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageInfoModel.swift; sourceTree = "<group>"; };
 		D7003CBF50029050E50490AF /* Pods_Myntra.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Myntra.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE54B6D180A656661ACA7B2B /* Pods-Myntra.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Myntra.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Myntra/Pods-Myntra.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -100,6 +106,9 @@
 				D6561CD61E5AE016004E4D75 /* GetTableCell.swift */,
 				D6561CD81E5AF7EA004E4D75 /* HeaderViewController.swift */,
 				D6561CDA1E5AFAF5004E4D75 /* HeaderViewController.xib */,
+				D6F414511E5C612A00BE2A57 /* Webservices.swift */,
+				D6F414531E5C617300BE2A57 /* NetworkController.swift */,
+				D6F414551E5C61BD00BE2A57 /* ImageInfoModel.swift */,
 			);
 			path = Myntra;
 			sourceTree = "<group>";
@@ -239,12 +248,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				D603407C1E5899A500B0D8EB /* TableViewCell.swift in Sources */,
+				D6F414561E5C61BD00BE2A57 /* ImageInfoModel.swift in Sources */,
 				D6561CD71E5AE016004E4D75 /* GetTableCell.swift in Sources */,
 				D603406B1E5898CD00B0D8EB /* MyntraVC.swift in Sources */,
 				D60340801E589A4B00B0D8EB /* CollectionViewCell.swift in Sources */,
 				D6561CD91E5AF7EA004E4D75 /* HeaderViewController.swift in Sources */,
 				D60340691E5898CD00B0D8EB /* AppDelegate.swift in Sources */,
+				D6F414521E5C612A00BE2A57 /* Webservices.swift in Sources */,
 				D6561CD51E5AB28A004E4D75 /* RandomColorGenerator.swift in Sources */,
+				D6F414541E5C617300BE2A57 /* NetworkController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

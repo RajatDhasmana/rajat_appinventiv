@@ -7,13 +7,15 @@
 //
 
 import UIKit
+import AlamofireImage
 
 
 class MyntraVC: UIViewController {
 
 //MARK: IBOutlets
     @IBOutlet weak var myntraTableView: UITableView!
-    
+    var typesofcars = Array<String>()
+    var imagelist = [ImageInfo]()
     var minimisetableindices = Array<IndexPath>()
     var minimisesectionindices = Array<Int>()
 //MARK: App LifeCycle
@@ -21,7 +23,6 @@ class MyntraVC: UIViewController {
         super.viewDidLoad()
        
         // Do any additional setup after loading the view, typically from a nib.
-    
         myntraTableView.delegate = self
         myntraTableView.dataSource = self
         myntraTableView.allowsSelection = false
@@ -29,6 +30,7 @@ class MyntraVC: UIViewController {
         myntraTableView.register(cellNib1, forCellReuseIdentifier: "TableViewCellID")
         let cellNib3 = UINib(nibName: "HeaderViewController", bundle: nil)
         myntraTableView.register(cellNib3, forHeaderFooterViewReuseIdentifier: "HeaderViewControllerID")
+       
     }
 
     override func didReceiveMemoryWarning() {
@@ -60,11 +62,69 @@ extension MyntraVC : UITableViewDataSource , UITableViewDelegate  {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
        
         let celltable = tableView.dequeueReusableCell(withIdentifier: "TableViewCellID", for: indexPath) as! TableViewCell
+        switch indexPath.row {
+            
+        case 0:  Webservices().fetchDataFromPixabay(withQuery: "cars", success: { (images : [ImageInfo]) in
+            
+                self.imagelist = images
+                celltable.viewOfCollection.reloadData()
+            
+                }) { (error : Error) in
+            
+                    print(error)
+            
+                    }
+                print(imagelist)
+                let cellNib2 = UINib(nibName: "CollectionViewCell", bundle: nil)
+                celltable.viewOfCollection.register(cellNib2, forCellWithReuseIdentifier: "CollectionViewCellID")
+                celltable.viewOfCollection.delegate = self
+                celltable.viewOfCollection.dataSource = self
+                celltable.tableCellLabel.text = "CARS"
+
+
+        case 1:     Webservices().fetchDataFromPixabay(withQuery: "bikes", success: { (images : [ImageInfo]) in
+            
+                self.imagelist = images
+            celltable.viewOfCollection.reloadData()
+            
+        }) { (error : Error) in
+            
+            print(error)
+            
+        }
+        
         let cellNib2 = UINib(nibName: "CollectionViewCell", bundle: nil)
         celltable.viewOfCollection.register(cellNib2, forCellWithReuseIdentifier: "CollectionViewCellID")
         celltable.viewOfCollection.delegate = self
         celltable.viewOfCollection.dataSource = self
-        celltable.tableCellLabel.text = "Brand"
+        celltable.tableCellLabel.text = "BIKES"
+
+        case 2:   Webservices().fetchDataFromPixabay(withQuery: "trucks", success: { (images : [ImageInfo]) in
+            
+            self.imagelist = images
+            celltable.viewOfCollection.reloadData()
+            
+        }) { (error : Error) in
+            
+            print(error)
+            
+        }
+        
+        let cellNib2 = UINib(nibName: "CollectionViewCell", bundle: nil)
+        celltable.viewOfCollection.register(cellNib2, forCellWithReuseIdentifier: "CollectionViewCellID")
+        celltable.viewOfCollection.delegate = self
+        celltable.viewOfCollection.dataSource = self
+        celltable.tableCellLabel.text = "TRUCKS"
+
+        
+        default : fatalError("not found")
+        
+        }
+        
+        
+        
+        
+        
         celltable.toggleButton.addTarget(self, action: #selector(self.toggleButtonTapped), for: .touchUpInside)
         
         return celltable
@@ -176,14 +236,17 @@ extension MyntraVC : UITableViewDataSource , UITableViewDelegate  {
 extension MyntraVC : UICollectionViewDelegate , UICollectionViewDataSource , UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return imagelist.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cellcollection = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionViewCellID", for: indexPath) as! CollectionViewCell
         
-        cellcollection.backgroundColor = UIColor.getRandomColor
-        cellcollection.favouriteButton.addTarget(self, action: #selector(self.favButtonTapped), for: .touchUpInside)
+        let cellcollection = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionViewCellID", for: indexPath) as! CollectionViewCell
+        if let url = URL(string: imagelist[indexPath.item].previewURL){
+            cellcollection.collectionCellImage.af_setImage(withURL : url)  }
+            cellcollection.backgroundColor = UIColor.getRandomColor
+            cellcollection.favouriteButton.addTarget(self, action: #selector(self.favButtonTapped), for: .touchUpInside)
+    
         return cellcollection
         
     }
@@ -212,3 +275,41 @@ extension MyntraVC : UICollectionViewDelegate , UICollectionViewDataSource , UIC
 }
 
 
+//extension MyntraVC {
+////    
+//    func numberofrows() {
+//        typesofcars = []
+//        Webservices().fetchDataFromPixabay(withQuery: "cars", success: { (images : [ImageInfo]) in
+//            
+//            self.imagelist = images
+//            //self.myntraTableView.reloadData()
+//            
+//        }) { (error : Error) in
+//            
+//            print(error)
+//            
+//        }
+//
+//        for indices in 0...imagelist.count{
+//            typesofcars.append(imagelist[indices].tag)
+//            
+//        }
+//
+//        
+//    }
+//    
+//}
+
+
+//        typesofcars = imagelist.filter({ (imageinfo) -> Bool in
+//             typesofcars.append(imageinfo.tag)
+//            return true
+//        })
+       //
+     
+       
+//    
+//
+
+//
+//
