@@ -15,6 +15,7 @@ class MyntraVC: UIViewController {
     @IBOutlet weak var myntraTableView: UITableView!
     
     var minimisetableindices = Array<IndexPath>()
+    var minimisesectionindices = Array<Int>()
 //MARK: App LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,7 +49,12 @@ extension MyntraVC : UITableViewDataSource , UITableViewDelegate  {
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        if minimisesectionindices.contains(section) {
+            return 0
+        }
+        else {
+            return 3
+        }
         }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -73,15 +79,6 @@ extension MyntraVC : UITableViewDataSource , UITableViewDelegate  {
             return 160
         }
     }
-//    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-//        switch section {
-//        case 0: return "MEN"
-//        case 1: return "WOMEN"
-//        case 2: return "KIDS"
-//        default : fatalError("not found")
-//            
-//        }
-//    }
     
 
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -90,14 +87,22 @@ extension MyntraVC : UITableViewDataSource , UITableViewDelegate  {
    
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         guard let headerobject = myntraTableView.dequeueReusableHeaderFooterView(withIdentifier: "HeaderViewControllerID") as? HeaderViewController else {    fatalError("not found")      }
-//        switch section {
-//        case 0:  headerobject.headerLabel.text = "MEN"
-//        case 1: headerobject.headerLabel.text = "WOMEN"
-//        case 2: headerobject.headerLabel.text = "KIDS"
-//        default:  fatalError("not found")
-//            
-//        }
-          headerobject.headerLabel.text = "brand"
+        switch section {
+        case 0:  headerobject.headerLabel.text = "MEN"
+        case 1: headerobject.headerLabel.text = "WOMEN"
+        case 2: headerobject.headerLabel.text = "KIDS"
+        default:  fatalError("not found")
+            
+        }
+        headerobject.minimiseSectionButton.addTarget(self, action: #selector(self.minimiseSectionButtonTapped), for: .touchUpInside)
+        headerobject.minimiseSectionButton.tag = section
+        if minimisesectionindices.contains(section) {
+            headerobject.minimiseSectionButton.isSelected = true
+        }
+        else {
+            
+            headerobject.minimiseSectionButton.isSelected = false
+        }
          return headerobject
         
     }
@@ -113,6 +118,7 @@ extension MyntraVC : UITableViewDataSource , UITableViewDelegate  {
         let celloftable = cell
         
         let rowoftable = myntraTableView.indexPath(for: celloftable)
+        
         
         if button.isSelected {
                 button.isSelected = false
@@ -134,6 +140,33 @@ extension MyntraVC : UITableViewDataSource , UITableViewDelegate  {
             myntraTableView.reloadRows(at: minimisetableindices, with: .none)
         }
         
+    }
+
+//MARK: Minimise Section Button Tapped Action
+    func minimiseSectionButtonTapped(button: UIButton) {
+
+        
+        if button.isSelected {
+            button.isSelected = false
+            button.setTitle("-", for: .normal)
+            print("is not selected")
+            minimisesectionindices = minimisesectionindices.filter({ (indices) -> Bool in
+                return indices != button.tag
+            })
+            
+            
+        }
+            
+        else {
+            
+            button.isSelected = true
+            button.setTitle("+", for: .selected)
+            print("is selected")
+            minimisesectionindices.append(button.tag)
+            
+        }
+        
+            myntraTableView.reloadSections([button.tag], with: .none)
     }
 }
 

@@ -13,5 +13,7 @@ class HeaderViewController: UITableViewHeaderFooterView {
     
     @IBOutlet weak var headerLabel: UILabel!
    
- 
+    
+    @IBOutlet weak var minimiseSectionButton: UIButton!
+    
     }

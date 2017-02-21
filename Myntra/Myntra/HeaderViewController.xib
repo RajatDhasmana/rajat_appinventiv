@@ -46,6 +46,7 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="headerLabel" destination="0Kb-pL-AAv" id="p2x-ON-q3a"/>
+                <outlet property="minimiseSectionButton" destination="uc8-DR-qsi" id="ChX-fh-dEe"/>
             </connections>
             <point key="canvasLocation" x="30.5" y="417"/>
         </view>
