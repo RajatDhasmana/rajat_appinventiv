@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		95104618728FA9BCEEA751B4 /* Pods_Myntra.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7003CBF50029050E50490AF /* Pods_Myntra.framework */; };
 		D60340691E5898CD00B0D8EB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60340681E5898CD00B0D8EB /* AppDelegate.swift */; };
 		D603406B1E5898CD00B0D8EB /* MyntraVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D603406A1E5898CD00B0D8EB /* MyntraVC.swift */; };
 		D603406E1E5898CD00B0D8EB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D603406C1E5898CD00B0D8EB /* Main.storyboard */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		11237372E5509A0D37B7AFC2 /* Pods-Myntra.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Myntra.release.xcconfig"; path = "Pods/Target Support Files/Pods-Myntra/Pods-Myntra.release.xcconfig"; sourceTree = "<group>"; };
 		D60340651E5898CD00B0D8EB /* Myntra.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Myntra.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D60340681E5898CD00B0D8EB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D603406A1E5898CD00B0D8EB /* MyntraVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyntraVC.swift; sourceTree = "<group>"; };
@@ -38,6 +40,8 @@
 		D6561CD61E5AE016004E4D75 /* GetTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetTableCell.swift; sourceTree = "<group>"; };
 		D6561CD81E5AF7EA004E4D75 /* HeaderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderViewController.swift; sourceTree = "<group>"; };
 		D6561CDA1E5AFAF5004E4D75 /* HeaderViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderViewController.xib; sourceTree = "<group>"; };
+		D7003CBF50029050E50490AF /* Pods_Myntra.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Myntra.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DE54B6D180A656661ACA7B2B /* Pods-Myntra.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Myntra.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Myntra/Pods-Myntra.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,17 +49,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95104618728FA9BCEEA751B4 /* Pods_Myntra.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CD7692297C3ECEFE42DA46D0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DE54B6D180A656661ACA7B2B /* Pods-Myntra.debug.xcconfig */,
+				11237372E5509A0D37B7AFC2 /* Pods-Myntra.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		D603405C1E5898CD00B0D8EB = {
 			isa = PBXGroup;
 			children = (
 				D60340671E5898CD00B0D8EB /* Myntra */,
 				D60340661E5898CD00B0D8EB /* Products */,
+				CD7692297C3ECEFE42DA46D0 /* Pods */,
+				DA3AF402E5C8DDE1D577A4B9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -88,6 +104,14 @@
 			path = Myntra;
 			sourceTree = "<group>";
 		};
+		DA3AF402E5C8DDE1D577A4B9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D7003CBF50029050E50490AF /* Pods_Myntra.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -95,9 +119,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D60340771E5898CD00B0D8EB /* Build configuration list for PBXNativeTarget "Myntra" */;
 			buildPhases = (
+				4EB47D22576656E1021D8D69 /* [CP] Check Pods Manifest.lock */,
 				D60340611E5898CD00B0D8EB /* Sources */,
 				D60340621E5898CD00B0D8EB /* Frameworks */,
 				D60340631E5898CD00B0D8EB /* Resources */,
+				211C3D476BD419F543272821 /* [CP] Embed Pods Frameworks */,
+				91C7CBDA2E58ABD84CFE1C41 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -157,6 +184,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		211C3D476BD419F543272821 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Myntra/Pods-Myntra-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4EB47D22576656E1021D8D69 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		91C7CBDA2E58ABD84CFE1C41 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Myntra/Pods-Myntra-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D60340611E5898CD00B0D8EB /* Sources */ = {
@@ -290,6 +365,7 @@
 		};
 		D60340781E5898CD00B0D8EB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DE54B6D180A656661ACA7B2B /* Pods-Myntra.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Myntra/Info.plist;
@@ -302,6 +378,7 @@
 		};
 		D60340791E5898CD00B0D8EB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 11237372E5509A0D37B7AFC2 /* Pods-Myntra.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Myntra/Info.plist;
